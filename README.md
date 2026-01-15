@@ -64,21 +64,6 @@ TraceRAG Copilot uses **Ollama** to run large language models locally, enabling:
 
 ---
 
-## High-Level Architecture
-
-User Query
-↓
-Planning Agent
-↓
-Web Retrieval (MCP + Brightdata)
-↓
-Content Extraction & Verification
-↓
-Synthesis & Citation Assembly
-↓
-Structured Research Output
-
----
 
 ## Tech Stack
 
