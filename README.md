@@ -1,73 +1,93 @@
-# TraceRAG-Research-Copilot
+# TraceRAG Copilot
+### A Multi-Agent, Citation-Grounded Deep Research System
 
-A Multi-Agent, Citation-Grounded Deep Research System
+---
 
-**Overview**
+## Overview
 
-TraceRAG Copilot is a multi-agent research system designed to perform deep, traceable web research and generate citation-grounded reports. Unlike traditional search tools that return isolated links, TraceRAG Copilot decomposes a research question, retrieves evidence from across the web, verifies claims, and synthesizes structured outputs with transparent source attribution.
+**TraceRAG Copilot** is a multi-agent deep research system designed to perform **traceable, source-grounded web research** and generate structured, verifiable reports. Instead of returning a list of links, TraceRAG Copilot decomposes complex queries, retrieves evidence from across the web, verifies claims against sources, and synthesizes results into citation-backed outputs.
 
-The system combines agentic reasoning, deep web retrieval, and local language models to deliver research results that prioritize accuracy, traceability, and reproducibility.
+The system emphasizes **reliability, transparency, and reproducibility**, making it suitable for analytical, academic, compliance, and technical research workflows.
 
-**Why TraceRAG Copilot?**
+---
 
-Large language models are powerful but prone to hallucination when operating without verifiable sources. TraceRAG Copilot addresses this by enforcing a trace-first research workflow, where every synthesized insight is backed by source material.
+## Why TraceRAG Copilot?
+
+Large language models can generate convincing answers, but often lack transparency around where information comes from. TraceRAG Copilot addresses this limitation by enforcing a **trace-first research workflow**, ensuring that every synthesized insight is backed by explicit source material.
 
 TraceRAG Copilot is built for:
+- Deep research requiring trustworthy citations
+- Analysts and engineers conducting exploratory investigations
+- Use cases where auditability and source verification matter
 
-Deep research tasks requiring trustworthy sources
+---
 
-Analysts, engineers, and students performing exploratory investigations
+## Key Features
 
-Compliance, competitive intelligence, and technical research workflows
+### 🔍 Multi-Agent Research Pipeline
 
-**Key Capabilities**
-🔍 Agent-Driven Deep Research
+TraceRAG Copilot orchestrates multiple specialized agents, each responsible for a distinct research task:
 
-TraceRAG Copilot uses a coordinated set of specialized agents, each responsible for a specific stage of the research lifecycle:
+1. **Planning Agent**  
+   Breaks down the user query into focused sub-questions and search strategies.
 
+2. **Retrieval Agent**  
+   Performs deep web searches and content acquisition via an MCP-powered web layer.
+
+3. **Extraction Agent**  
+   Cleans, chunks, and extracts relevant facts from retrieved content.
+
+4. **Verification Agent**  
+   Cross-validates claims against source text to reduce unsupported statements.
+
+5. **Synthesis Agent**  
+   Produces a structured research report with embedded citations.
+
+---
+
+### 📎 Source Traceability
+
+- Every research output is linked to its original source
+- Citations include URLs and extracted snippets
+- Unsupported or weakly sourced claims are filtered or flagged
+
+This design helps minimize hallucinations and improves trust in generated results.
+
+---
+
+### 🧠 Local LLM Execution
+
+TraceRAG Copilot uses **Ollama** to run large language models locally, enabling:
+- Reduced dependency on cloud LLM APIs
+- Lower operational costs
+- Improved privacy and control over inference
+
+---
+
+## High-Level Architecture
+
+User Query
+↓
 Planning Agent
-Breaks down a high-level query into focused sub-questions and search strategies.
+↓
+Web Retrieval (MCP + Brightdata)
+↓
+Content Extraction & Verification
+↓
+Synthesis & Citation Assembly
+↓
+Structured Research Output
 
-Retrieval Agent
-Performs deep web searches and content acquisition using an MCP-powered web data layer.
+---
 
-Extraction Agent
-Cleans, chunks, and extracts relevant facts and entities from retrieved content.
+## Tech Stack
 
-Verification Agent
-Cross-checks claims against source text to reduce unsupported or ambiguous statements.
+- **Model Context Protocol (MCP)** – structured web data access  
+- **CrewAI** – multi-agent orchestration  
+- **Brightdata Web MCP Server** – deep web retrieval  
+- **Ollama** – local LLM inference  
+- **Streamlit** – interactive user interface  
 
-Synthesis Agent
-Produces a structured research report with citations and contextual explanations.
 
-**📎 Source Traceability by Design**
 
-Every research output is tied to explicit sources
 
-Citations include URLs and extracted text snippets
-
-Claims without supporting evidence are flagged or excluded
-
-This makes TraceRAG Copilot suitable for environments where auditability matters.
-
-**🧠 Local-First LLM Execution**
-
-TraceRAG Copilot runs language models locally via Ollama, reducing dependency on external LLM APIs and enabling:
-
-Lower inference costs
-
-Offline or restricted-network usage
-
-Model flexibility and experimentation
-
-**Tech Stack**
-
-Model Context Protocol (MCP) – structured web search and data access
-
-CrewAI – multi-agent orchestration and task coordination
-
-Brightdata Web MCP Server – deep web data retrieval
-
-Ollama – local LLM inference
-
-Streamlit – interactive user interface
